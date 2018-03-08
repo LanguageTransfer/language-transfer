@@ -1,8 +1,10 @@
 <template>
   <div class="hello">
-    <img width="300" src="../assets/logo.jpg">
+    <img width="100%" src="../assets/logo.jpg">
 
     <router-link to="/courses/">Courses</router-link>
+    <br />
+    <a href="https://www.languagetransfer.org/whats-language-transfer">About the project</a>
   </div>
 </template>
 

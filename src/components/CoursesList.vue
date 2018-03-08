@@ -1,5 +1,6 @@
 <template>
-  <div class="hello">
+  <div>
+    <a @click="$router.go(-1)">&lt; Back</a>
     <h1>Courses</h1>
 
     <ul>
@@ -11,7 +12,7 @@
 </template>
 
 <script>
-import SC from 'soundcloud'
+// import SC from 'soundcloud'
 
 export default {
   name: 'CoursesList',
@@ -21,14 +22,13 @@ export default {
     }
   },
   created () {
-    SC.initialize({
-      client_id: ''
-    })
-
     let that = this
-    SC.get('/users/languagetransfer/playlists', {}).then(function (playlists) {
-      that.courses = playlists
-    })
+    fetch('/static/course_list.json')
+      .then(function (response) {
+        return response.json()
+      }).then(function (playlists) {
+        that.courses = playlists
+      })
   }
 }
 </script>

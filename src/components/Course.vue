@@ -1,10 +1,12 @@
 <template>
-  <div class="hello">
-    <h1>Course: {{ title }}</h1>
+  <div>
+    <a @click="$router.go(-1)">&lt; Back</a>
+
+    <h1>{{ title }}</h1>
 
     <ul>
       <li v-for="(t, i) in tracks" :key="t.id">
-        Track {{ i+1 }}
+        <router-link :to="'/track/' + t.id">Track {{ i+1 }}</router-link>
       </li>
     </ul>
   </div>
